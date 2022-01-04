@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+<!DOCTYPE html>
+
+{% load static %}
+
+
+{% block body %}
+
+<!-- END: header -->
+<section class="probootstrap-slider flexslider2 page-inner">
+  <div class="overlay"></div>
+  <div class="probootstrap-wrap-banner">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+
+          <div class="page-title probootstrap-animate">
+            <div class="probootstrap-breadcrumbs">
+              <a href="#">Home</a><span>Properties</span>
+            </div>
+            <h1>Properties</h1>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <ul class="slides">
+    <li
+      style="background-image: url(../../media/rooms/blue-and-white-rooms-hbx090120inspoindex-006-1617124627_eL0lveS.jpg);">
+    </li>
+    <li style="background-image: url(../../media/rooms/image_1.jpg);"></li>
+    <li style="background-image: url(../../media/rooms/work-8.jpg);"></li>
+  </ul>
+</section>
+<!-- END: slider  -->
+
+<section class="probootstrap-section probootstrap-section-lighter">
+  <div class="container">
+    <div class="row">
+      {% for proper in listproperty %}
+      <div class="col-md-4 col-sm-6">
+        <div class="probootstrap-card probootstrap-listing">
+          <div class="probootstrap-card-media">
+            <img src="{{proper.photo.url}}" class="img-responsive" alt="Sorry not available">
+            <a href="#" class="probootstrap-love"><i class="icon-heart"></i></a>
+          </div>
+          <div class="probootstrap-card-text">
+            <h2 class="probootstrap-card-heading"><a href="{% url 'detail' proper.id %}">{{proper}}</a></h2>
+            <div class="probootstrap-listing-location">
+              <i class="icon-location2"></i> <span>{{proper.location}}</span>
+            </div>
+            <div class="probootstrap-listing-category for-sale"><span style="color: black;">{{proper.type}}</span> <span
+                style="background-color:black ; border-radius: 3px;">{{proper.categories}}</span></div>
+            <div class="probootstrap-listing-price"><strong>GHS {{proper.price}}</strong> / month</div>
+          </div>
+          <div class="probootstrap-card-extra">
+            <ul>
+              <li>
+                Area
+                <span>2400 m2</span>
+              </li>
+              <li>
+                Beds
+                <span>3</span>
+              </li>
+              <li>
+                Baths
+                <span>2</span>
+              </li>
+              <li>
+                Garages
+                <span>1</span>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- END listing -->
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- END: section -->
+
+
+
+{% endblock body %}

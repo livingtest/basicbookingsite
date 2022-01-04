@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+
+
+
+{% block body %}
+{% load crispy_forms_tags %}
+<!-- END: header -->
+<section class="probootstrap-slider flexslider2 page-inner">
+  <div class="overlay"></div>
+  <div class="probootstrap-wrap-banner">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+
+          <div class="page-title probootstrap-animate">
+            <div class="probootstrap-breadcrumbs">
+              <a href="{% url 'home' %}">Home</a><a
+                href="{% url 'propertylist' %}">property</a><span>{{listproperty}}</span>
+            </div>
+            <h1>{{listproperty.name}}</h1>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <ul class="slides">
+    <li style="background-image: url(../../static/img/slider_1.jpg);"></li>
+    <li style="background-image: url(../../static/img/slider_4.jpg);"></li>
+    <li style="background-image: url(../../static/img/slider_2.jpg);"></li>
+  </ul>
+</section>
+<!-- END: slider  -->
+
+<section class="probootstrap-section">
+  <div class="container">
+    <div class="row heading">
+      <div class="col-md-12">
+        <h1 class="mt0 mb50 text-center">{{listproperty}}</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <p><img src="{{listproperty.photo.url}}" style="text-align: center;" class="img-responsive"
+            alt="Oops no image available"></p>
+      </div>
+    </div>
+    <!-- <div class="row">
+        <div class="col-md-6">
+          <h2>Our Mission</h2>
+          <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+        </div>
+       
+      </div> -->
+
+    <div class="col-md-12 Properties-single mt-4 mb-5 ftco-animate">
+      <h2> {{listproperty.name}} </h2>
+      <!-- <div class="probootstrap-listing-category for-sale"><span style="color: black;">{{listproperty.type}}</span> <span style="background-color:black ; border-radius: 3px;">{{listproperty.categories}}</span></div> -->
+
+
+
+      <p class="rate mb-4">
+        <span class="loc"><a href="#"><i class="icon-map"></i> {{listproperty.location}} </a></span>
+      </p>
+
+      <p>{{listproperty.roomdetail}}</p>
+      <div class="d-md-flex mt-5 mb-5">
+        <ul>
+          <li><span>Lot Area: </span> {{listproperty.area}} SQ FT</li>
+          <li><span>Bed Rooms: </span> {{listproperty.numofbeds}}</li>
+          <li><span>Bath Rooms: </span> {{listproperty.numofbath}}</li>
+          <li><span>Garage: </span> {{listproperty.numofgarage}}</li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  <form method="POST" style="margin-top:0%;">
+    <h3 style="margin-left: 100px; text-align: center;">Book this room now!!!</h3>
+
+    <div class="container probootstrap-card" style="box-shadow: 20%;">
+
+
+      {% csrf_token %}
+      {{reserve.as_p}}
+
+
+
+      <input class="btn btn-primary" style="margin-top: 10px; box-shadow: 20px 10px 20px 10px;" type="submit"
+        value="Book now">
+
+  </form>
+
+  </div>
+
+</section>
+
+
+
+{% endblock %}

@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load static %}
+<!-- END: header -->
+
+
+{% block body %}
+{% load crispy_forms_tags %}
+<section class="probootstrap-slider flexslider2 page-inner">
+  <div class="overlay"></div>
+  <div class="probootstrap-wrap-banner">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+
+          <div class="page-title probootstrap-animate">
+            <div class="probootstrap-breadcrumbs">
+              <a href="{% url 'home' %}">Home</a><span>contact</span>
+            </div>
+            <h1>Contact</h1>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <ul class="slides">
+    <li style="background-image: url(img/slider_1.jpg);"></li>
+    <li style="background-image: url(img/slider_4.jpg);"></li>
+    <li style="background-image: url(img/slider_2.jpg);"></li>
+  </ul>
+</section>
+
+
+
+
+
+
+
+
+<section class="probootstrap-section" style="margin: 0%;">
+
+
+  <div class="container" ">
+    <div class=" row">
+    <div class="col-md-6 col-xs-6">
+      <form method="POST" class="probootstrap-form  md30  " style="text-align: center ;  margin-left: 25%;">
+
+        {% csrf_token %}
+        {{ contact }}
+
+
+        <input class="btn btn-primary"
+          style="margin-top: 10px; box-shadow: 20px 10px 20px 10px; color: rgb(14, 40, 122); " type="submit"
+          value="Send">
+
+
+      </form>
+
+    </div>
+  </div>
+  </div>
+</section>
+
+
+
+
+<section class="ftco-section contact-section" style="color: rgb(6, 78, 185);">
+  <div class="container">
+    <div class="row d-flex contact-info">
+      <div class="col-md-3 d-flex">
+        <div class="bg-light align-self-stretch box p-4 text-center">
+          <h3 class="mb-4">Address</h3>
+          <p>Labone Apaapa Third Oloti Street</p>
+        </div>
+      </div>
+      <div class="col-md-3 d-flex">
+        <div class="bg-light align-self-stretch box p-4 text-center">
+          <h3 class="mb-4">Contact Number</h3>
+          <p><a href="tel://+233559847020">+233 55 9847020</a></p>
+        </div>
+      </div>
+      <div class="col-md-3 d-flex">
+        <div class="bg-light align-self-stretch box p-4 text-center">
+          <h3 class="mb-4">Email Address</h3>
+          <p><a href="mailto:mesgideon@gmail.com">mesgideon@gmail.com</a></p>
+        </div>
+      </div>
+      <div class="col-md-3 d-flex">
+        <div class="bg-light align-self-stretch box p-4 text-center">
+          <h3 class="mb-4">Website</h3>
+          <p><a href="{% url 'home' %}">bookingh.com</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+{% endblock %}
